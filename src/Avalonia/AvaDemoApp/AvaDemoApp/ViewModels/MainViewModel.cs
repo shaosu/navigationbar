@@ -1,9 +1,15 @@
-﻿namespace AvaDemoApp.ViewModels
+﻿using Prism.Commands;
+
+namespace AvaDemoApp.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-#pragma warning disable CA1822 // Mark members as static
         public string Greeting => "Welcome to Avalonia!";
-#pragma warning restore CA1822 // Mark members as static
+         
+        public DelegateCommand<string> GoToCommand => new DelegateCommand<string>(GoToCommand_Sub);
+        private void GoToCommand_Sub(string par)
+        {
+            System.Diagnostics.Debug.WriteLine(par);
+        }
     }
 }

@@ -18,6 +18,7 @@
     <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto">
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center"
+                   Classes="Icon"
                    FontSize="25"
                    Foreground="Green"
                    Text="{Binding Greeting}" />
@@ -28,8 +29,14 @@
                                  HorizontalAlignment="Left"
                                  FontFamily="{StaticResource FIcon}">
                 <!--  这里添加 ListBoxItem  -->
-                <navigation:MagicBarItem Content="Item 1" Tag="&#xe655;" />
-                <navigation:MagicBarItem Content="Item 2" Tag="&#xe63e;" />
+                <navigation:MagicBarItem Command="{Binding GoToCommand}"
+                                         CommandParameter="AAA"
+                                         Content="Item 1"
+                                         Tag="&#xe655;" />
+                <navigation:MagicBarItem Command="{Binding GoToCommand}"
+                                         CommandParameter="BBB"
+                                         Content="Item 2"
+                                         Tag="&#xe63e;" />
                 <navigation:MagicBarItem Content="Item 3" Tag="&#xe64b;" />
                 <navigation:MagicBarItem Content="Item 4" Tag="&#xe671;" />
                 <navigation:MagicBarItem Content="Item 5" Tag="&#xe8ad;" />
@@ -53,7 +60,8 @@
                 <navigation:MagicBarItem Content="Item 5" Tag="&#xe8ad;" />
             </navigation:MagicBar>
         </ScrollViewer>
-        <TextBox Grid.Row="3"
+        <TextBox x:Name="txta"
+                 Grid.Row="3"
                  Width="100"
                  Height="30"
                  HorizontalAlignment="Left"
