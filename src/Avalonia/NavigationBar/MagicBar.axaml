@@ -13,7 +13,7 @@
         </controls:MagicBar>
     </Design.PreviewWith>
 
-    <Style Selector="TextBlock.Icon">
+    <Style Selector="controls|MagicBarItem>Grid>TextBlock.Icon">
         <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Tag}" />
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
@@ -21,26 +21,26 @@
         <!--<Setter Property="FontFamily" Value="{StaticResource FIcon}" />-->
         <Setter Property="FontSize" Value="35" />
     </Style>
-    <Style Selector="TextBlock.IconUnSelect">
+    <Style Selector="controls|MagicBarItem>Grid>TextBlock.IconUnSelect">
         <Setter Property="Margin" Value="8,0,0,0" />
         <Setter Property="Foreground" Value="#44333333" />
     </Style>
-    <Style Selector="TextBlock.IconSelect">
+    <Style Selector="controls|MagicBarItem>Grid>TextBlock.IconSelect">
         <Setter Property="Margin" Value="8,-50,0,0" />
         <Setter Property="Foreground" Value="#333333" />
     </Style>
 
-    <Style Selector="TextBlock.Name">
+    <Style Selector="controls|MagicBarItem>Grid>TextBlock.Name">
         <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Content}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="14" />
     </Style>
-    <Style Selector="TextBlock.NameUnSelect">
+    <Style Selector="controls|MagicBarItem>Grid>TextBlock.NameUnSelect">
         <Setter Property="Margin" Value="0,90,0,0" />
         <Setter Property="Foreground" Value="#00000000" />
     </Style>
-    <Style Selector="TextBlock.NameSelect">
+    <Style Selector="controls|MagicBarItem>Grid>TextBlock.NameSelect">
         <Setter Property="Margin" Value="0,60,0,0" />
         <Setter Property="Foreground" Value="#333333" />
     </Style>
@@ -61,17 +61,17 @@
         <Setter Property="Foreground" Value="#333333" />
     </Style>
 
-    <Style Selector="Border.Bar">
+    <Style Selector="controls|MagicBar>Grid>Border.Bar">
         <Setter Property="Background" Value="#DDDDDD" />
         <Setter Property="Margin" Value="0,40,0,0" />
         <Setter Property="CornerRadius" Value="10" />
     </Style>
-    <Style Selector="Grid.Circle">
+    <Style Selector="controls|MagicBar>Grid>Canvas>Grid.Circle">
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="80" />
         <Setter Property="Canvas.Left" Value="0" />
     </Style>
-    <Style Selector="Path.Arc">
+    <Style Selector="controls|MagicBar>Grid>Canvas>Grid>Path.Arc">
         <Setter Property="Data" Value="M0,0 L100,0 C95.167503,0 91.135628,3.4278221 90.203163,7.9846497 L90.152122,8.2704506 89.963921,9.1416779 C85.813438,27.384438 69.496498,41 50,41 30.5035,41 14.186564,27.384438 10.036079,9.1416779 L9.8478823,8.2704926 9.7968359,7.9846497 C8.8643732,3.4278221 4.8324914,0 0,0 z" />
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
