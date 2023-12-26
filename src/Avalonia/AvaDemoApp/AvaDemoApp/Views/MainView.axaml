@@ -1,0 +1,124 @@
+<UserControl x:Class="AvaDemoApp.Views.MainView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:navigation="using:NavigationBar"
+             xmlns:vm="clr-namespace:AvaDemoApp.ViewModels"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:MainViewModel"
+             Background="Black"
+             mc:Ignorable="d">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   Foreground="Green"
+                   Text="{Binding Greeting}" />
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
+            <navigation:MagicBar x:Name="bar"
+                                 Width="640"
+                                 Height="120"
+                                 HorizontalAlignment="Left"
+                                 FontFamily="{StaticResource FIcon}">
+                <!--  这里添加 ListBoxItem  -->
+                <navigation:MagicBarItem Content="Item 1" Tag="&#xe655;" />
+                <navigation:MagicBarItem Content="Item 2" Tag="&#xe63e;" />
+                <navigation:MagicBarItem Content="Item 3" Tag="&#xe64b;" />
+                <navigation:MagicBarItem Content="Item 4" Tag="&#xe671;" />
+                <navigation:MagicBarItem Content="Item 5" Tag="&#xe8ad;" />
+                <navigation:MagicBarItem Content="Item 6" Tag="&#xe8ad;" />
+                <navigation:MagicBarItem Content="Item 7" Tag="&#xe8ad;" />
+                <navigation:MagicBarItem Content="Item 8" Tag="&#xe8ad;" />
+            </navigation:MagicBar>
+        </ScrollViewer>
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto">
+            <navigation:MagicBar x:Name="bar2"
+                                 Width="400"
+                                 Height="120"
+                                 HorizontalAlignment="Center"
+                                 Fill="GreenYellow"
+                                 FontFamily="{StaticResource FIcon}">
+                <!--  这里添加 ListBoxItem  -->
+                <navigation:MagicBarItem Content="Item 1" Tag="&#xe655;" />
+                <navigation:MagicBarItem Content="Item 2" Tag="&#xe63e;" />
+                <navigation:MagicBarItem Content="Item 3" Tag="&#xe64b;" />
+                <navigation:MagicBarItem Content="Item 4" Tag="&#xe671;" />
+                <navigation:MagicBarItem Content="Item 5" Tag="&#xe8ad;" />
+            </navigation:MagicBar>
+        </ScrollViewer>
+        <TextBox Grid.Row="3"
+                 Width="100"
+                 Height="30"
+                 HorizontalAlignment="Left"
+                 Text="AAAA">
+            <TextBox.Styles>
+                <Style Selector="TextBox:focus-within">
+                    <Setter Property="Margin" Value="1000,0,0,0" />
+                    <Setter Property="Foreground" Value="Red" />
+                </Style>
+                <Style Selector="TextBox">
+                    <Setter Property="Margin" Value="0,0,0,0" />
+                    <Setter Property="Foreground" Value="Green" />
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <ThicknessTransition Easing="CubicEaseInOut" Property="Margin" Duration="0:0:2.5" />
+                            <BrushTransition Easing="CubicEaseInOut" Property="Foreground" Duration="0:0:2.5" />
+                        </Transitions>
+                    </Setter>
+                </Style>
+            </TextBox.Styles>
+        </TextBox>
+        <TextBox Grid.Row="3"
+                 Width="100"
+                 Height="30"
+                 HorizontalAlignment="Left"
+                 Text="BBB">
+
+            <TextBox.Styles>
+                <Style Selector="TextBox:focus-within">
+                    <Setter Property="Margin" Value="1000,0,0,0" />
+                    <Setter Property="Foreground" Value="Red" />
+                </Style>
+                <Style Selector="TextBox">
+                    <Setter Property="Margin" Value="0,0,0,0" />
+                    <Setter Property="Foreground" Value="Green" />
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <ThicknessTransition Easing="CubicEaseInOut" Property="Margin" Duration="0:0:2.5" />
+                            <BrushTransition Easing="CubicEaseInOut" Property="Foreground" Duration="0:0:2.5" />
+                        </Transitions>
+                    </Setter>
+                </Style>
+            </TextBox.Styles>
+        </TextBox>
+
+        <Border Grid.Row="4"
+                Width="100"
+                Height="100"
+                Background="Red">
+            <Border.Styles>
+                <Style Selector="Border">
+                    <Setter Property="Opacity" Value="0.5" />
+                    <Setter Property="RenderTransform" Value="rotate(0)" />
+                </Style>
+                <Style Selector="Border:pointerover">
+                    <Setter Property="Opacity" Value="1" />
+                    <Setter Property="RenderTransform" Value="rotate(45deg)" />
+                </Style>
+            </Border.Styles>
+            <Border.Transitions>
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:2" />
+                    <DoubleTransition Property="Opacity" Duration="0:0:2" />
+                </Transitions>
+            </Border.Transitions>
+        </Border>
+    </Grid>
+</UserControl>

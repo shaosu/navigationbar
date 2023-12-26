@@ -1,0 +1,110 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:NavigationBar"
+        xmlns:local="using:NavigationBar">
+
+    <Design.PreviewWith>
+        <controls:MagicBar Width="400" Height="120" Background="#222222">
+            <controls:MagicBarItem Content="Item 1" Tag="&#xe655;" />
+            <controls:MagicBarItem Content="Item 2" Tag="&#xe63e;" />
+            <controls:MagicBarItem Content="Item 3" Tag="&#xe64b;" />
+            <controls:MagicBarItem Content="Item 4" Tag="&#xe671;" />
+            <controls:MagicBarItem Content="Item 5" Tag="&#xe8ad;" />
+        </controls:MagicBar>
+    </Design.PreviewWith>
+
+    <Style Selector="TextBlock.Icon">
+        <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Tag}" />
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <!--<Setter Property="FontFamily" Value="{StaticResource FIcon}" />-->
+        <Setter Property="FontSize" Value="35" />
+    </Style>
+    <Style Selector="TextBlock.IconUnSelect">
+        <Setter Property="Margin" Value="8,0,0,0" />
+        <Setter Property="Foreground" Value="#44333333" />
+    </Style>
+    <Style Selector="TextBlock.IconSelect">
+        <Setter Property="Margin" Value="8,-50,0,0" />
+        <Setter Property="Foreground" Value="#333333" />
+    </Style>
+
+    <Style Selector="TextBlock.Name">
+        <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Content}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style Selector="TextBlock.NameUnSelect">
+        <Setter Property="Margin" Value="0,90,0,0" />
+        <Setter Property="Foreground" Value="#00000000" />
+    </Style>
+    <Style Selector="TextBlock.NameSelect">
+        <Setter Property="Margin" Value="0,60,0,0" />
+        <Setter Property="Foreground" Value="#333333" />
+    </Style>
+
+    <Style Selector="controls|MagicBarItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid Background="{TemplateBinding Background}">
+                        <TextBlock x:Name="PART_Icon" Classes="Icon IconUnSelect " FontFamily="{TemplateBinding FontFamily}" />
+                        <TextBlock x:Name="PART_Name" Classes="Name NameUnSelect" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style Selector="controls|MagicBarItem:selected">
+        <Setter Property="Foreground" Value="#333333" />
+    </Style>
+
+    <Style Selector="Border.Bar">
+        <Setter Property="Background" Value="#DDDDDD" />
+        <Setter Property="Margin" Value="0,40,0,0" />
+        <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="Grid.Circle">
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="80" />
+        <Setter Property="Canvas.Left" Value="0" />
+    </Style>
+    <Style Selector="Path.Arc">
+        <Setter Property="Data" Value="M0,0 L100,0 C95.167503,0 91.135628,3.4278221 90.203163,7.9846497 L90.152122,8.2704506 89.963921,9.1416779 C85.813438,27.384438 69.496498,41 50,41 30.5035,41 14.186564,27.384438 10.036079,9.1416779 L9.8478823,8.2704926 9.7968359,7.9846497 C8.8643732,3.4278221 4.8324914,0 0,0 z" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Fill" Value="#222222" />
+        <Setter Property="Margin" Value="-10,90,-10,-1" />
+    </Style>
+
+    <Style Selector="controls|MagicBar">
+        <!--  Set Defaults  -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Background="{TemplateBinding Background}">
+                    <!--<Grid.Clip>
+                        <RectangleGeometry Rect="0 0 640 120" />
+                    </Grid.Clip>-->
+                    <Border Classes="Bar" />
+                    <Canvas Margin="20,0,20,0">
+                        <Grid x:Name="PART_Circle" Margin="0,0,0,0" Classes="Circle">
+                            <Path Classes="Arc" />
+                            <Ellipse Fill="#222222" />
+                            <Ellipse Margin="6" Fill="{TemplateBinding Fill}" />
+                        </Grid>
+                    </Canvas>
+                    <ItemsPresenter Margin="20,30,20,0">
+                        <ItemsPresenter.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="{Binding $parent[ListBox].ItemCount}" />
+                            </ItemsPanelTemplate>
+                        </ItemsPresenter.ItemsPanel>
+                    </ItemsPresenter>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
+
